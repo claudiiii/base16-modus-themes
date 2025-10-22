@@ -79,15 +79,33 @@ def map_to_base16(colors, theme_type):
             'base0F': colors.get('red-cooler', '#a0132f'),        # Deprecated
         }
 
+def slugify(name):
+    """Convert a scheme name to a slug."""
+    import unicodedata
+    # Normalize to NFD and drop combining characters
+    name = unicodedata.normalize('NFD', name)
+    name = ''.join(c for c in name if not unicodedata.combining(c))
+    # Lowercase
+    name = name.lower()
+    # Replace spaces with dashes
+    name = name.replace(' ', '-')
+    # Keep only alphanumeric and dashes
+    name = ''.join(c for c in name if c.isalnum() or c == '-')
+    return name
+
 def create_base16_scheme(theme_name, scheme_name, author, base16_colors):
     """Create a base16 scheme dictionary."""
+    variant = 'dark' if 'vivendi' in theme_name.lower() else 'light'
+    slug = slugify(scheme_name)
+
     return {
         'system': 'base16',
         'name': scheme_name,
+        'slug': slug,
         'author': author,
-        'variant': 'dark' if 'vivendi' in theme_name.lower() else 'light',
+        'variant': variant,
         'palette': {
-            f'base{i:02X}': base16_colors[f'base{i:02X}']
+            f'base{i:02X}': base16_colors[f'base{i:02X}'].lstrip('#')
             for i in range(16)
         }
     }
@@ -131,19 +149,22 @@ def main():
             base16_colors
         )
 
-        # Write YAML file
+        # Write YAML file in tinted-theming standard 0.11.2 format
         output_file = output_dir / f'base16-{theme_name}.yaml'
         with open(output_file, 'w') as f:
-            f.write('# Base16 ' + scheme_name + '\n')
-            f.write('# Author: ' + scheme['author'] + '\n\n')
-            f.write('scheme: "' + scheme['name'] + '"\n')
-            f.write('author: "' + scheme['author'] + '"\n')
+            # Write metadata
+            f.write(f'system: "{scheme["system"]}"\n')
+            f.write(f'name: "{scheme["name"]}"\n')
+            f.write(f'slug: "{scheme["slug"]}"\n')
+            f.write(f'author: "{scheme["author"]}"\n')
+            f.write(f'variant: "{scheme["variant"]}"\n')
 
-            # Write colors
+            # Write palette
+            f.write('palette:\n')
             for i in range(16):
                 key = f'base{i:02X}'
                 value = scheme['palette'][key]
-                f.write(f'{key}: "{value}"\n')
+                f.write(f'  {key}: "{value}"\n')
 
         print(f"  Created {output_file}")
 
