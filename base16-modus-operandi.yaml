@@ -1,0 +1,21 @@
+# Base16 Modus Operandi
+# Author: Protesilaos Stavrou (adapted to base16)
+
+scheme: "Modus Operandi"
+author: "Protesilaos Stavrou (adapted to base16)"
+base00: "#ffffff"
+base01: "#f2f2f2"
+base02: "#c4c4c4"
+base03: "#595959"
+base04: "#193668"
+base05: "#000000"
+base06: "#000000"
+base07: "#000000"
+base08: "#a60000"
+base09: "#884900"
+base0A: "#6f5500"
+base0B: "#006800"
+base0C: "#005e8b"
+base0D: "#0031a9"
+base0E: "#721045"
+base0F: "#a0132f"

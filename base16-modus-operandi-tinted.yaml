@@ -1,0 +1,21 @@
+# Base16 Modus Operandi Tinted
+# Author: Protesilaos Stavrou (adapted to base16)
+
+scheme: "Modus Operandi Tinted"
+author: "Protesilaos Stavrou (adapted to base16)"
+base00: "#fbf7f0"
+base01: "#efe9dd"
+base02: "#c9b9b0"
+base03: "#595959"
+base04: "#193668"
+base05: "#000000"
+base06: "#000000"
+base07: "#000000"
+base08: "#a60000"
+base09: "#894000"
+base0A: "#6d5000"
+base0B: "#006300"
+base0C: "#00598b"
+base0D: "#0031a9"
+base0E: "#721045"
+base0F: "#a0132f"

@@ -1,0 +1,21 @@
+# Base16 Modus Vivendi Tritanopia
+# Author: Protesilaos Stavrou (adapted to base16)
+
+scheme: "Modus Vivendi Tritanopia"
+author: "Protesilaos Stavrou (adapted to base16)"
+base00: "#000000"
+base01: "#1e1e1e"
+base02: "#535353"
+base03: "#989898"
+base04: "#a0d7f2"
+base05: "#ffffff"
+base06: "#ffffff"
+base07: "#ffffff"
+base08: "#ff5f59"
+base09: "#ffa00f"
+base0A: "#cabf00"
+base0B: "#44bc44"
+base0C: "#00d3d0"
+base0D: "#2fafff"
+base0E: "#feacd0"
+base0F: "#ff7f86"
